@@ -22,7 +22,10 @@
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://192.168.56.101/CI';
+if (gethostname() == 'jayvee-VirtualBox')  
+	$config['base_url'] = 'http://192.168.56.101/CI';
+else 
+	$config['base_url'] = 'http://localhost/CI';
 
 /*
 |--------------------------------------------------------------------------

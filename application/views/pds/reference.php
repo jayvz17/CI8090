@@ -71,10 +71,11 @@
                 <!-- <input type="hidden" class="" id="new_pic" name="new_pic" value="" /> -->
                 <!-- <input type="hidden" id="old_pic" name="old_pic" value="<?=(isset($cusm->Picture) && $cusm->Picture != '0') ? $cusm->Picture : ''?>" /> -->
                 <!-- LIVE PHOTO -->
+                <!-- <div id = "testings" ></div> -->
                 <div id = "div_pic"> </div>
-                <img  id = 'PICTURE_EMPLOYEE'>
                 <div class="demo" > </div>
-                <div id = "testings" ></div>
+                
+                
             </div>
         </div>
     </div>

@@ -1695,17 +1695,14 @@
 		},
 		finish			: function(fn, file){
 			$(".ax-upload").hide();
-			REFRESH_PHOTO();
-			console.log(fn);
+			alert("Updating data.");
+			location.reload();
+		},
+		beforeUpload:   function(filename, file) {
+			console.log(filename);
 			console.log(file);
+			return true;
 		},
-		validateFile:   function(name, extension, size){
-			console.log(name);
-			console.log(extension);
-			console.log(size);
-			
-		},
-		onPreview:      function(){},
 
 	    // test: "asdsadsa",
 	// <link href="<?=HOST_URL?>CI/assets/css/baseTheme/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -1717,15 +1714,10 @@
 	$(".ax-upload-all").hide();
 
 	function REFRESH_PHOTO() {
-		// $("#PICTURE_EMPLOYEE").attr("src",'<?=HOST_URL?>CI/image/2016070300000005/2016070300000005.png');
-		var img = $("#PICTURE_EMPLOYEE").attr("src",'<?=HOST_URL?>CI/image/2016070300000005/2016070300000005.png').on('load', function() {
-        if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
-            alert('broken image!');
-        } else {
-            $("#PICTURE_EMPLOYEE").append(img);
-        }
-    });
-	}
 
+		var _EMP_NO  = $("#_EMP_NO").val();
+		$("#div_pic").html("<img width = '100px' height = '100px' src = '<?=HOST_URL?>CI/image/"+_EMP_NO+"/"+_EMP_NO+".jpg' >");
+
+	}
 
 </script>
