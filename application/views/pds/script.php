@@ -1683,7 +1683,7 @@
 	$('.demo').ajaxupload({
 	    // url:'upload.php'
 	    url 			: '<?=HOST_URL?>CI/assets/php/upload.php',
-	    allowExt		: ['jpg', 'png'],
+	    allowExt		: ['jpg'],
 	    maxFiles 		: 2,
 	    remotePath 		: '../../image/'+$("#_EMP_NO").val(), 
 	    removeOnSuccess	: true,
@@ -1709,14 +1709,24 @@
 
 	});
 
-	$(".ax-main-title").html("Select File");
+	$(".ax-main-title").html("Select File <br> Note: JPG ONLY");
 	$(".ax-clear").hide();
 	$(".ax-upload-all").hide();
 
 	function REFRESH_PHOTO() {
 
 		var _EMP_NO  = $("#_EMP_NO").val();
-		$("#div_pic").html("<img width = '100px' height = '100px' src = '<?=HOST_URL?>CI/image/"+_EMP_NO+"/"+_EMP_NO+".jpg' >");
+		var url = '<?=HOST_URL?>CI/image/'+_EMP_NO+'/'+_EMP_NO+'.jpg';
+
+		var http = new XMLHttpRequest();
+	    http.open('HEAD', url, false);
+	    http.send();
+	    STATUS_FILE = http.status!=404;
+	    
+	    if (STATUS_FILE == true)
+			$("#div_pic").html("<img width = '100px' height = '100px' src = '"+url+"' ?>");
+		else 
+			$("#div_pic").html("<img width = '100px' height = '100px' src = '<?=HOST_URL?>CI/image/default.png' ?>");
 
 	}
 
